@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batalha Pokémon</title>
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/icon/favicon/pokebola.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+      <header class="header">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </header>
+      <main>
+        <div class="container">
+          <div class="container players">
+            <div class="container player" id="player-one">
+              <div class="pokemon-info">
+                <span class="pokemon-name">Charmander</span>
+                <img src="./assets/images/hp/enemy-hp.png" alt="" class="pokemon-hp bar">
+              </div>
+              <img class="pokemon-img" src="#" alt="" />
+            </div>
+            <div class="container player" id="player-two">
+              <div class="pokemon-info">
+                <span class="pokemon-name">Charmander</span>
+                <img src="./assets/images/hp/player-hp.png" alt="" class="pokemon-hp bar">
+              </div>
+              <img class="pokemon-img" src="#" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="container options">
+          <div class="options-message">
+            <span
+              >What will
+              <span id="player-one-pname" class="pokemon-name"></span> do?</span
+            >
+          </div>
+          <div class="options">
+          </div>
+        </div>
+      </main>
+    <script src="./assets/scripts/index.js"></script>
+  </body>
+</html>

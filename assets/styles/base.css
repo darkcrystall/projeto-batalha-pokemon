@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Jersey20';
+    font-weight: 600;
+    src: url("../fonts/Jersey20-Regular.ttf");
+}
+
+body {
+    background: linear-gradient(to top, #5a86be, #fff);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    font-family: "Jersey20", cursive;
+    font-size: 18px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: #33383d;
+}

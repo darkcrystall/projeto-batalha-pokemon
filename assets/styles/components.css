@@ -1,0 +1,19 @@
+.pokemon-info {
+  position: relative;
+  display: block;
+  height: 25%;
+  width: 200px;
+  padding: 10%;
+  background-color: #f8f8d8;
+  border: 5px solid #2b4317;
+}
+
+.pokeme-name {
+  display: block;
+}
+
+.pokemon-hp.bar {
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+}

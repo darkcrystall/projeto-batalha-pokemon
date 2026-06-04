@@ -65,6 +65,61 @@
       <button class="start-btn battle-start-btn" id="battle-start-btn" disabled>▶ Iniciar batalha</button>
       <div class="scanlines"></div>
     </div>
+    <main class="battle-screen hidden" id="battle-screen">
+      <div class="battle-area">
+        <div class="pokemon-status enemy-status" id="enemy-status">
+          <div class="status-header">
+            <span class="poke-name" id="enemy-name">???</span>
+            <span class="poke-level">Lv<span id="enemy-level">--</span></span>
+          </div>
+          <div class="hp-bar-wrap">
+            <span class="hp-label">HP</span>
+            <div class="hp-bar-track">
+              <div class="hp-bar-fill" id="enemy-hp-bar"></div>
+            </div>
+          </div>
+          <div class="hp-numbers" id="enemy-hp-numbers"></div>
+        </div>
+        
+        <div class="enemy-sprite-wrap">
+          <div class="sprite-shadow"></div>
+          <img class="pokemon-sprite enemy-sprite" id="enemy-sprite" src="" alt="Inimigo" />
+        </div>
+
+        <div class="player-sprite-wrap">
+          <div class="sprite-shadow"></div>
+          <img class="pokemon-sprite player-sprite" id="player-sprite" src="" alt="Jogador" />
+        </div>
+
+        <div class="pokemon-status player-status" id="player-status">
+          <div class="status-header">
+            <span class="poke-name" id="player-name">???</span>
+            <span class="poke-level">Lv<span id="player-level">--</span></span>
+          </div>
+          <div class="hp-bar-wrap">
+            <span class="hp-label">HP</span>
+            <div class="hp-bar-track">
+              <div class="hp-bar-fill" id="player-hp-bar"></div>
+            </div>
+          </div>
+          <div class="hp-numbers" id="player-hp-numbers"></div>
+        </div>
+      </div>
+      
+      <div class="battle-panel">
+        <div class="dialog-box" id="dialog-box">
+          <p class="dialog-text" id="dialog-text">Carregando batalha...</p>
+        </div>
+
+        <div class="moves-menu hidden" id="moves-menu">
+          <div class="moves-grid" id="moves-grid"></div>
+          <div class="move-info" id="move-info">
+            <span id="move-pp">PP --/--</span>
+            <span id="move-type">TIPO: ---</span>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="./assets/scripts/index.js"></script>
   </body>
 </html>

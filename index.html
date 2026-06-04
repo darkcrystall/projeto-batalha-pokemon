@@ -18,41 +18,39 @@
       <div class="start-screen" id="start">
         <div class="start-content">
           <img src="./assets/images/logo/pokemon-logo.gif" alt="" class="start-logo" />
-          <h1 class="start-title">Batalha Pokémon</h1>
-          <button class="start-btn" id="startBtn">▶ Iniciar Batalha</button>
+          <h1 class="start-title">Batalha de Pokémon</h1>
+          <button class="start-btn" id="startBtn">▶ Jogar</button>
         </div>
         <div class="scanlines"></div>
       </div>
-      <main>
-        <div class="container">
-          <div class="container players">
-            <div class="container player" id="player-one">
-              <div class="pokemon-info">
-                <span class="pokemon-name">Charmander</span>
-                <img src="./assets/images/hp/enemy-hp.png" alt="" class="pokemon-hp bar">
-              </div>
-              <img class="pokemon-img" src="#" alt="" />
-            </div>
-            <div class="container player" id="player-two">
-              <div class="pokemon-info">
-                <span class="pokemon-name">Charmander</span>
-                <img src="./assets/images/hp/player-hp.png" alt="" class="pokemon-hp bar">
-              </div>
-              <img class="pokemon-img" src="#" alt="" />
-            </div>
+      <div class="selection-screen hidden" id="selection-screen">
+      <h2 class="selection-title">Escolha seu Pokémon!</h2>
+      <div class="selection-panels">
+        <div class="selection-panel">
+          <h3>Seu Pokémon</h3>
+          <div class="search-box">
+            <input type="text" id="player-search" placeholder="Nome ou número..." maxlength="20" />
+            <button id="player-search-btn">Buscar</button>
+          </div>
+          <div class="pokemon-preview" id="player-preview">
+            <div class="preview-placeholder">?</div>
           </div>
         </div>
-        <div class="container options">
-          <div class="options-message">
-            <span
-              >What will
-              <span id="player-one-pname" class="pokemon-name"></span> do?</span
-            >
+        <div class="selection-vs">VS</div>
+        <div class="selection-panel">
+          <h3>Oponente</h3>
+          <div class="search-box">
+            <input type="text" id="enemy-search" placeholder="Nome ou número..." maxlength="20" />
+            <button id="enemy-search-btn">Buscar</button>
           </div>
-          <div class="options">
+          <div class="pokemon-preview" id="enemy-preview">
+            <div class="preview-placeholder">?</div>
           </div>
         </div>
-      </main>
+      </div>
+      <button class="start-btn battle-start-btn" id="battle-start-btn" disabled>▶ Iniciar batalha</button>
+      <div class="scanlines"></div>
+    </div>
     <script src="./assets/scripts/index.js"></script>
   </body>
 </html>

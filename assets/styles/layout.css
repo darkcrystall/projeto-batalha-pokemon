@@ -1,3 +1,17 @@
+/* linhas desenhadas para criar efeito pixelado*/
+.scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.15) 3px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+}
 /* tela inicial */
 .start-screen {
   position: fixed;
@@ -13,50 +27,40 @@
   opacity: 0;
   pointer-events: none;
 }
-
-.container {
+/* tela de seleção */
+.selection-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg-screen-dark) 0%, var(--bg-screen) 100%);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2em;
+  overflow-y: auto;
+}
+.pokemon-preview {
+  width: 120px;
+  height: 120px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.container.players {
+  overflow: hidden;
   position: relative;
-  display: flex;
-  background: url("../images/background/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
-  margin: 2%;
-  height: 50vh;
-  width: 50vw;
-  border: 2px solid;
 }
-
-.container.player {
-  position: absolute;
-  flex-direction: column;
+.preview-placeholder {
+  font-size: 48px;
+  color: rgba(255,255,255,0.2);
+  font-family: var(--font-main);
 }
-
-#player-one {
-  top: 0;
-  right: 0;
-  margin: 2% 2% 0 0;
-}
-
-#player-two {
-  top: 50%;
-  left: 0;
-  margin: 0 0 0 2%;
-}
-
-.container.options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 20vh;
+.pokemon-preview img {
   width: 100%;
-}
-
-.options-message {
-  background-color: #0d1117;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
 }

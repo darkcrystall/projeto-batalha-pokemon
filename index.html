@@ -29,11 +29,15 @@
         <div class="selection-panel">
           <h3>Seu Pokémon</h3>
           <div class="search-box">
-            <input type="text" id="player-search" placeholder="Nome ou número..." maxlength="20" />
-            <div class="tooltip">
-              <span>Nome ou número</span>
+            <input type="text" 
+            class="search-input"
+            id="player-search" placeholder="Nome ou número..." maxlength="20" />
+            <div id="tooltip-selection" class="tooltip">
+              <span id="tooltip-text">Nome ou número</span>
             </div>
-            <button id="player-search-btn">Buscar</button>
+            <button data-tooltip="Se o campo estiver vazio, um número aleatório é escolhido." 
+            class="search-btn"
+            id="player-search-btn">Buscar</button>
           </div>
           <div class="pokemon-preview" id="player-preview">
             <div class="preview-placeholder">?</div>
@@ -43,11 +47,15 @@
         <div class="selection-panel">
           <h3>Oponente</h3>
           <div class="search-box">
-            <input type="text" id="enemy-search" placeholder="Nome ou número..." maxlength="20" />
-            <div class="tooltip">
-              <span>Nome ou número</span>
+            <input type="text" 
+            class="search-input"
+            id="enemy-search" placeholder="Nome ou número..." maxlength="20" />
+            <div id="tooltip-selection" class="tooltip">
+              <span id="tooltip-text">Nome ou número</span>
             </div>
-            <button id="enemy-search-btn">Buscar</button>
+            <button data-tooltip="Se o campo estiver vazio, um número aleatório é escolhido." 
+            class="search-btn"
+            id="enemy-search-btn">Buscar</button>
           </div>
           <div class="pokemon-preview" id="enemy-preview">
             <div class="preview-placeholder">?</div>

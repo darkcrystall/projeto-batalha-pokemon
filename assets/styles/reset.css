@@ -11,3 +11,6 @@ button, span {
   color: inherit;
   text-transform: inherit;
 }
+img { 
+    display: block;
+}

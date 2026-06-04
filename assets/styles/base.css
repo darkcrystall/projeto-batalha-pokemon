@@ -4,13 +4,64 @@
     src: url("../fonts/PressStart2P-Regular.ttf");
 }
 
+:root {
+  --font-main: "PressStart", monospace;
+  
+  --bg-main: #9fb4ce;
+  --bg-main-light: #b0cde7;
+
+  --bg-screen: #2b3b6b;
+  --bg-screen-dark: #1a2448;
+  --bg-screen-deep: #0d1020;
+
+  --bg-battle: #a8d8a8;
+
+  --panel-bg: #e8e0c8;
+  --panel-dialog: #f0ece0;
+  --panel-battle: #d8d0a0;
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #444;
+  --text-muted: #555;
+  --text-light: #fff;
+
+  --border-primary: #2b4317;
+  --border-light: rgba(255, 255, 255, 0.3);
+
+  --btn-primary: #222222;
+  --btn-primary-hover: #131313;
+
+  --pokemon-yellow: #ffcb05;
+  --pokemon-red: #c80000;
+
+  --hp-green: #48c840;
+  --hp-yellow: #f8d030;
+  --hp-red: #f82020;
+
+  --white: #ffffff;
+  --off-white: #f8f8d8;
+  --dark: #333;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.4);
+  --shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.5);
+
+  --transition-fast: 0.1s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
+}
+
 body {
-    background: linear-gradient(to top, #9fb4ce, #b0cde7);
+    background: linear-gradient(to top, var(--bg-main), var(--bg-main-light));
     min-height: 100vh;
     background-repeat: no-repeat;
-    font-family: "PressStart", cursive;
+    font-family: var(--font-main);
     font-size: 18px;
     line-height: 1.5;
     text-transform: uppercase;
-    color: #33383d;
+    color: var(--text-primary);
 }

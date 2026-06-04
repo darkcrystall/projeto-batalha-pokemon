@@ -21,7 +21,7 @@
   --panel-battle: #d8d0a0;
 
   --text-primary: #1a1a1a;
-  --text-secondary: #444;
+  --text-secondary: #ffffff4d;
   --text-muted: #555;
   --text-light: #fff;
 
@@ -57,9 +57,9 @@
   --shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.4);
   --shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.5);
 
-  --transition-fast: 0.1s;
-  --transition-normal: 0.3s;
-  --transition-slow: 0.5s;
+  --transition-fast: 0.3s;
+  --transition-normal: 0.5s;
+  --transition-slow: 0.9s;
 }
 
 body {

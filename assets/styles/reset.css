@@ -3,3 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+button, span {
+  background: none;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+}

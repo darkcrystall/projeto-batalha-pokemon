@@ -1,14 +1,14 @@
 @font-face {
-    font-family: 'Jersey20';
+    font-family: 'PressStart';
     font-weight: 600;
-    src: url("../fonts/Jersey20-Regular.ttf");
+    src: url("../fonts/PressStart2P-Regular.ttf");
 }
 
 body {
-    background: linear-gradient(to top, #5a86be, #fff);
+    background: linear-gradient(to top, #9fb4ce, #b0cde7);
     min-height: 100vh;
     background-repeat: no-repeat;
-    font-family: "Jersey20", cursive;
+    font-family: "PressStart", cursive;
     font-size: 18px;
     line-height: 1.5;
     text-transform: uppercase;

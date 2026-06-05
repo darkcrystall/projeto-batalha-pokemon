@@ -118,7 +118,7 @@ async function startBattle() {
   const pSprites = playerData.sprites;
   const eSprites = enemyData.sprites;
 
-  playerSprite.src = pSprites.back_default;
+  playerSprite.src = pSprites.back_default ? pSprites.back_default : pSprites.front_default;
   enemySprite.src  = eSprites.front_default;
 
   playerName.textContent  = playerData.name;
@@ -127,6 +127,8 @@ async function startBattle() {
   getLevel();
   playerLevel.textContent = pLevel;
   enemyLevel.textContent  = eLevel;
+
+  getAbilities();
 }
 async function getLevel() {
     let getPLevel = playerData.base_experience;
@@ -138,4 +140,37 @@ async function getLevel() {
       pLevel = Math.floor(Math.random() * 100) + 1;
       eLevel = Math.floor(Math.random() * 100) + 1;
     }
+}
+async function getAbilities() {
+  let abilities = playerData.abilities;
+  console.log(abilities);
+  for (const object of abilities) {
+    let div = document.createElement("div");
+    div.innerHTML = `<button disabled class="move-btn">
+    <span id="${object.ability.name}">${object.ability.name}</span></button>`
+    movesGrid.appendChild(div);   
+  }
+  console.log(Array(abilities).length);
+  if (Array(abilities).length === 1) {
+      let replaceAttack = document.createElement("div");
+      replaceAttack.innerHTML = `<button disabled class="move-btn"><span id="bite">bite</span></button>`
+      movesGrid.appendChild(replaceAttack);
+      let replaceAttack1 = document.createElement("div");
+      replaceAttack1.innerHTML = `<button disabled class="move-btn">
+      <span id="kick">kick</span></button>`;
+      movesGrid.appendChild(replaceAttack1);
+  } else if (Array(abilities).length === 0) {
+    let replaceAttack1 = document.createElement("div");
+    replaceAttack1.innerHTML = `<button disabled class="move-btn">
+    <span id="kick">kick</span></button>`;
+    movesGrid.appendChild(replaceAttack1);
+    let replaceAttack2 = document.createElement("div");
+    replaceAttack2.innerHTML = `<button disabled class="move-btn"><span id="bite">bite</span></button>`
+    movesGrid.appendChild(replaceAttack2);
+    let replaceAttack3 = document.createElement("div");
+    replaceAttack3.innerHTML = `<button disabled class="move-btn"><span id="basic">basic attack</span></button>`
+    movesGrid.appendChild(replaceAttack3);
+  } else {
+
+  }
 }

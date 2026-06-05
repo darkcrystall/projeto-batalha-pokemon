@@ -218,13 +218,11 @@
   from { opacity: 1; }
   to { opacity: 0.6; }
 }
-
 .hp-numbers {
   font-size: 7px;
   color: #555;
   text-align: right;
 }
-
 .enemy-sprite-wrap,
 .player-sprite-wrap {
   position: absolute;
@@ -232,43 +230,28 @@
   flex-direction: column;
   align-items: center;
 }
-
 .enemy-sprite-wrap {
   top: 10%;
-  right: 10%;
+  right: 20%;
   animation: slideInRight 0.5s ease;
 }
-
 .player-sprite-wrap {
-  bottom: 12%;
-  left: 8%;
+  bottom: -5%;
+  left: 20%;
   animation: slideInLeft 0.5s ease;
 }
-
-.sprite-shadow {
-  width: 80px;
-  height: 12px;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, transparent 70%);
-  border-radius: 50%;
-  margin-top: -6px;
-}
-
 .pokemon-sprite {
   image-rendering: pixelated;
   object-fit: contain;
 }
-
 .enemy-sprite {
   width: clamp(80px, 15vw, 140px);
   height: clamp(80px, 15vw, 140px);
 }
-
 .player-sprite {
   width: clamp(90px, 18vw, 160px);
   height: clamp(90px, 18vw, 160px);
-  transform: scaleX(-1);
 }
-
 /* Animations */
 .shake-h {
   animation: shakeH 0.4s ease !important;
@@ -315,9 +298,7 @@
   100% { transform: scaleX(-1) translateY(60px); opacity: 0; }
 }
 
-/* ========================================
-   BATTLE PANEL
-======================================== */
+/* painel batalha */
 .battle-panel {
   height: 38%;
   min-height: 140px;
@@ -335,15 +316,13 @@
   display: flex;
   align-items: center;
 }
-
 .dialog-text {
   font-size: clamp(7px, 1.1vw, 10px);
   line-height: 2;
   color: var(--text-light);
-  text-shadow: var(--text-shadow-lg);
+  text-shadow: var(--text-shadow-pokemon);
 }
 
-/* Typewriter cursor */
 .dialog-text::after {
   content: '▼';
   display: inline-block;
@@ -351,12 +330,10 @@
   animation: blink 0.8s step-end infinite;
   font-size: 0.8em;
 }
-
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-
 .moves-menu {
   position: relative;
   background: var(--panel-options);
@@ -367,14 +344,12 @@
   flex-direction: column;
   gap: 8px;
 }
-
 .moves-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
   flex: 1;
 }
-
 .move-btn {
   font-size: clamp(6px, 0.9vw, 9px);
   padding: 8px 10px;
@@ -409,7 +384,6 @@
   border-color: var(--color-btn-hover);
 }
 
-/* Type color badges */
 .move-btn::before {
   content: attr(data-type);
   font-size: 6px;

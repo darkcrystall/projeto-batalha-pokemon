@@ -23,10 +23,6 @@
   z-index: 999;
   transition: opacity 1s ease;
 }
-.start-screen.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
 /* tela de seleção */
 .selection-screen {
   position: fixed;
@@ -65,9 +61,6 @@
   image-rendering: pixelated;
 }
 /* tela de batalha */
-.battle-screen.hidden {
-  z-index: 0;
-}
 .battle-screen {
   z-index: 99;
   position: fixed;
@@ -130,4 +123,8 @@
 @keyframes slideInRight {
   from { transform: translateX(40px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
+}
+/* utilitário: controla telas/elementos escondidos */
+.hidden {
+  display: none !important;
 }

@@ -38,6 +38,8 @@ const enemyHpNums   = document.getElementById('enemy-hp-numbers');
 /* estado dos jogadores */
 let playerData = null;
 let enemyData  = null;
+let pLevel = null;
+let eLevel = null;
 let playerHP = 0, playerMaxHP = 0;
 let enemyHP  = 0, enemyMaxHP  = 0;
 /* ao iniciar o jogo */
@@ -112,14 +114,28 @@ async function searchPokemon(who) {
     preview.innerHTML = '<div class="preview-placeholder" style="font-size:10px;color:#f88">404</div>';
   }
 }
-function startBattle() {
+async function startBattle() {
   const pSprites = playerData.sprites;
   const eSprites = enemyData.sprites;
+
   playerSprite.src = pSprites.back_default;
   enemySprite.src  = eSprites.front_default;
 
   playerName.textContent  = playerData.name;
   enemyName.textContent   = enemyData.name;
+
+  getLevel();
   playerLevel.textContent = pLevel;
   enemyLevel.textContent  = eLevel;
+}
+async function getLevel() {
+    let getPLevel = playerData.base_experience;
+    let getELevel = enemyData.base_experience;
+    if (getPLevel && getELevel) {
+      pLevel = getPLevel;
+      eLevel = getELevel;
+    } else {
+      pLevel = Math.floor(Math.random() * 100) + 1;
+      eLevel = Math.floor(Math.random() * 100) + 1;
+    }
 }

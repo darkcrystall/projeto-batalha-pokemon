@@ -20,22 +20,15 @@
 
   --text-primary: #1a1a1a;
   --text-secondary: #ffffff4d;
-  --text-muted: #555;
   --text-light: #fff;
 
   --border-primary: #222222;
-  --border-status: #2b4317;
   --border-light: rgba(255, 255, 255, 0.3);
 
   --btn-primary: #222222;
   --btn-primary-hover: #131313;
 
   --pokemon-yellow: #ffcb05;
-  --pokemon-red: #c80000;
-
-  --hp-green: #48c840;
-  --hp-yellow: #f8d030;
-  --hp-red: #f82020;
 
   --white: #ffffff;
   --off-white: #f8f8d8;
@@ -43,7 +36,6 @@
 
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 12px;
 
   --text-shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.8);
   --text-shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.35);
@@ -51,10 +43,6 @@
   --text-shadow-pokemon:
     var(--text-shadow-sm),
     var(--text-shadow-lg);
-
-  --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.4);
-  --shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.5);
 
   --transition-fast: 0.3s;
   --transition-normal: 0.5s;

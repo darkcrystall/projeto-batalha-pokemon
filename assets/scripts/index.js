@@ -5,9 +5,6 @@ const battleBtn = document.getElementById("battle-start-btn")
 /* inputs e botões */
 const searchBtn = document.querySelectorAll(".search-btn");
 const searchInput = document.querySelectorAll(".search-input");
-/* tooltip (popup de ajuda) */
-const tooltipSelec = document.querySelectorAll("#tooltip-selection");
-const tooltipSText = document.querySelectorAll(".tooltip-text");
 /* telas */
 const startScreen = document.getElementById("start");
 const selectionScreen = document.getElementById("selection-screen");
@@ -43,14 +40,10 @@ let playerData = null;
 let enemyData  = null;
 let playerHP = 0, playerMaxHP = 0;
 let enemyHP  = 0, enemyMaxHP  = 0;
-let playerShiny = false, enemyShiny = false;
-let battleActive = false;
-let playerTurn = true;
-let selectedMove = null;
-let typewriterTimer = null;
 /* ao iniciar o jogo */
 startBtn.addEventListener("click", () => {
   startScreen.classList.add("hidden");
+  selectionScreen.classList.remove("hidden");
   audio.play().catch(() => {});
 });
 /* depois de escolher */
@@ -81,9 +74,8 @@ enemySearchInput.addEventListener('keydown',  e => { if (e.key === 'Enter') sear
 battleBtn.addEventListener("click", () => {
   selectionScreen.classList.add('hidden');
   battleScreen.classList.remove('hidden');
-
   audio.play().catch(() => {});
-
+  startBattle();
 })
 /* busca */
 async function fetchPokemon(nameOrId) {
@@ -119,4 +111,15 @@ async function searchPokemon(who) {
   checkBattleReady();
     preview.innerHTML = '<div class="preview-placeholder" style="font-size:10px;color:#f88">404</div>';
   }
+}
+function startBattle() {
+  const pSprites = playerData.sprites;
+  const eSprites = enemyData.sprites;
+  playerSprite.src = pSprites.back_default;
+  enemySprite.src  = eSprites.front_default;
+
+  playerName.textContent  = playerData.name;
+  enemyName.textContent   = enemyData.name;
+  playerLevel.textContent = pLevel;
+  enemyLevel.textContent  = eLevel;
 }

@@ -14,18 +14,17 @@
   --bg-screen-dark: #1a2448;
   --bg-screen-deep: #0d1020;
 
-  --bg-battle: #a8d8a8;
-
-  --panel-bg: #e8e0c8;
-  --panel-dialog: #f0ece0;
-  --panel-battle: #d8d0a0;
+  --panel-status: #f8f8d8;
+  --panel-dialog: #285068;
+  --panel-options: #f8f8f8;
 
   --text-primary: #1a1a1a;
   --text-secondary: #ffffff4d;
   --text-muted: #555;
   --text-light: #fff;
 
-  --border-primary: #2b4317;
+  --border-primary: #222222;
+  --border-status: #2b4317;
   --border-light: rgba(255, 255, 255, 0.3);
 
   --btn-primary: #222222;

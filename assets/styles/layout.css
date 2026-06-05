@@ -95,10 +95,12 @@
   z-index: 5;
   background: var(--panel-status);
   border: 3px solid var(--border-primary);
+  font-size: clamp(6px, 0.85vw, 8px);
   border-radius: 6px;
   padding: 8px 12px;
-  min-width: 200px;
+  min-width: 25%;
   box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  text-shadow: var(--text-shadow-ss);
 }
 .status-header {
   display: flex;
@@ -127,4 +129,8 @@
 /* utilitário: controla telas/elementos escondidos */
 .hidden {
   display: none !important;
+}
+/* utilitário: gira a imagem caso a API não possua */
+.rotate {
+  transform: rotate(180deg);
 }

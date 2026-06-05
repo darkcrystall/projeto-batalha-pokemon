@@ -39,6 +39,7 @@
   --radius-sm: 4px;
   --radius-md: 8px;
 
+  --text-shadow-ss: 2px 2px 0 rgba(0, 0, 0, 0.5);
   --text-shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.8);
   --text-shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.35);
 

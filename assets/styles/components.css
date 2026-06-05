@@ -306,11 +306,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: var(--panel-battle);
-  border-top: 4px solid var(--border-primary);
+  border: 4px solid var(--border-primary);
 }
 
 .dialog-box {
-  border: 3px solid var(--border-primary);
+  border: 1em solid var(--border-yellow);
   background: var(--panel-dialog);
   padding: 16px 20px;
   display: flex;
@@ -337,8 +337,7 @@
 .moves-menu {
   position: relative;
   background: var(--panel-options);
-  border: 3px solid var(--border-primary);
-  box-shadow: inset 0 0 0 1em #404870;
+  border: 1em solid var(--border-purple);
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -354,7 +353,7 @@
   font-size: clamp(6px, 0.9vw, 9px);
   padding: 8px 10px;
   background: var(--white);
-  border: 2px solid var(--border-primary);
+  border: 2px solid var(--off-white);
   border-radius: 4px;
   text-align: left;
   transition: all 0.1s;
@@ -367,8 +366,8 @@
 }
 
 .move-btn:hover:not(:disabled) {
-  background: var(--color-panel-border);
-  color: #fff;
+  background: var(--border-primary);
+  color: var(--dark);
   transform: scale(1.03);
   z-index: 1;
 }
@@ -379,9 +378,8 @@
 }
 
 .move-btn.selected {
-  background: var(--color-btn);
-  color: #fff;
-  border-color: var(--color-btn-hover);
+  background: var(--panel-status);
+  border-color: var(--pokemon-yellow);
 }
 
 .move-btn::before {
@@ -395,14 +393,12 @@
 }
 
 .move-info {
-  position: absolute;
-  bottom: 10%;
   display: flex;
   justify-content: space-between;
   font-size: clamp(6px, 0.85vw, 8px);
-  color: #555;
+  color: var(--dark);
   padding: 0 4px;
-  border-top: 1px solid #aaa;
+  border-top: 1px solid var(--border-primary);
   padding-top: 4px;
 }
 

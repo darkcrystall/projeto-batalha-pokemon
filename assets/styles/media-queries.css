@@ -1,0 +1,9 @@
+@media (min-height: 640px) {
+    .enemy-sprite-wrap {
+        top: 30%;
+        right: 25%;
+    }
+    .player-sprite-wrap {
+        bottom: 2%;
+    }
+}

@@ -171,9 +171,10 @@
   cursor: not-allowed;
 }
 .poke-name {
-  font-size: clamp(7px, 1.2vw, 10px);
+  font-size: clamp(7px, 1em, 10px);
   font-weight: bold;
   letter-spacing: 1px;
+  margin: 0 10px 0 10px;
 }
 .poke-level {
   font-size: clamp(6px, 1vw, 9px);
@@ -198,7 +199,6 @@
   border: 1px solid #555;
   overflow: hidden;
 }
-
 .hp-bar-fill {
   height: 100%;
   background: var(--color-hp-green);
@@ -206,7 +206,6 @@
   transition: width 0.5s ease, background-color 0.5s ease;
   width: 100%;
 }
-
 .hp-bar-fill.yellow { background: var(--color-hp-yellow); }
 .hp-bar-fill.red { background: var(--color-hp-red); animation: hpPulse 0.6s ease infinite alternate; }
 
@@ -308,9 +307,16 @@
 .dialog-box {
   border: 1em solid var(--border-yellow);
   background: var(--panel-dialog);
-  padding: 16px 20px;
   display: flex;
   align-items: center;
+}
+.dialog-box-inner {
+  border: 8px solid var(--white);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1em 1.5em;
 }
 .dialog-text {
   font-size: clamp(7px, 1.1vw, 10px);
@@ -342,50 +348,50 @@
 .moves-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  overflow: visible;
   text-align: center;
   gap: 6px;
   flex: 1;
 }
 .move-btn {
+  position: relative;
+  overflow: visible;
   font-size: clamp(6px, 0.9vw, 9px);
   padding: 8px 10px;
   background: var(--white);
-  border: 2px solid var(--off-white);
   text-shadow: var(--text-shadow-ss);
+  box-shadow:  3px 3px 0px 0px rgba(0, 0, 0, 0.8);;
   border-radius: 4px;
+  border: 3px solid;
   transition: all 0.1s;
   line-height: 1.5;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   position: relative;
   cursor: pointer;
 }
 .move-btn:hover:not(:disabled) {
-  background: var(--border-primary);
-  color: var(--dark);
-  transform: scale(1.03);
+  transform: translateY(5px);
   z-index: 1;
 }
-
 .move-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
-
 .move-btn.selected {
-  background: var(--panel-status);
-  border-color: var(--pokemon-yellow);
+  transform: scale(1.2);
 }
-
-.move-btn::before {
-  content: attr(data-type);
-  font-size: 6px;
-  padding: 1px 4px;
-  border-radius: 2px;
-  background: rgba(0,0,0,0.2);
-  color: inherit;
-  float: right;
+.move-btn.selected::before {
+  z-index: 10;
+  content: '';
+  background-image: url('../images/icon/selector/selector.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
 }
 
 .move-info {

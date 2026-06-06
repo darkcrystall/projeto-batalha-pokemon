@@ -35,6 +35,7 @@ const enemyName     = document.getElementById('enemy-name');
 const enemyLevel    = document.getElementById('enemy-level');
 const enemyHpBar    = document.getElementById('enemy-hp-bar');
 const enemyHpNums   = document.getElementById('enemy-hp-numbers');
+let selectedMove = 0; 
 /* estado dos jogadores */
 let playerData = null;
 let enemyData  = null;
@@ -52,7 +53,6 @@ startBtn.addEventListener("click", () => {
 searchBtn.forEach((btn, index) => {
   btn.addEventListener("click", async () => {
     const input = searchInput[index];
-
     if (!input.value.trim()) {
       input.value = Math.floor(Math.random() * 1025) + 1;
     }
@@ -128,49 +128,88 @@ async function startBattle() {
   playerLevel.textContent = pLevel;
   enemyLevel.textContent  = eLevel;
 
-  getAbilities();
+  getMoves();
+  
+  playerHP = playerMaxHP = getHP(playerData);
+  enemyHP  = enemyMaxHP  = getHP(enemyData);
+  updateHPBar('player');
+  updateHPBar('enemy');
 }
-async function getLevel() {
-    let getPLevel = playerData.base_experience;
-    let getELevel = enemyData.base_experience;
-    if (getPLevel && getELevel) {
-      pLevel = getPLevel;
-      eLevel = getELevel;
-    } else {
-      pLevel = Math.floor(Math.random() * 100) + 1;
-      eLevel = Math.floor(Math.random() * 100) + 1;
-    }
+function expToLevel(exp) {
+  return Math.max(1, Math.min(100, Math.floor(exp / 3)));
 }
-async function getAbilities() {
-  let abilities = playerData.abilities;
-  console.log(abilities);
-  for (const object of abilities) {
-    let div = document.createElement("div");
-    div.innerHTML = `<button disabled class="move-btn">
-    <span id="${object.ability.name}">${object.ability.name}</span></button>`
-    movesGrid.appendChild(div);   
-  }
-  console.log(Array(abilities).length);
-  if (Array(abilities).length === 1) {
-      let replaceAttack = document.createElement("div");
-      replaceAttack.innerHTML = `<button disabled class="move-btn"><span id="bite">bite</span></button>`
-      movesGrid.appendChild(replaceAttack);
-      let replaceAttack1 = document.createElement("div");
-      replaceAttack1.innerHTML = `<button disabled class="move-btn">
-      <span id="kick">kick</span></button>`;
-      movesGrid.appendChild(replaceAttack1);
-  } else if (Array(abilities).length === 0) {
-    let replaceAttack1 = document.createElement("div");
-    replaceAttack1.innerHTML = `<button disabled class="move-btn">
-    <span id="kick">kick</span></button>`;
-    movesGrid.appendChild(replaceAttack1);
-    let replaceAttack2 = document.createElement("div");
-    replaceAttack2.innerHTML = `<button disabled class="move-btn"><span id="bite">bite</span></button>`
-    movesGrid.appendChild(replaceAttack2);
-    let replaceAttack3 = document.createElement("div");
-    replaceAttack3.innerHTML = `<button disabled class="move-btn"><span id="basic">basic attack</span></button>`
-    movesGrid.appendChild(replaceAttack3);
-  } else {
+function getLevel() {
+  pLevel = expToLevel(playerData.base_experience);
+  eLevel = expToLevel(enemyData.base_experience);
+}
+async function getMoves() {
+  const moves = playerData.moves.slice(0, 4);
 
+  moves.forEach(async (object, i) => {
+    const div = document.createElement("div");
+    const btn = document.createElement("button");
+    btn.className = 'move-btn';
+    btn.textContent = object.move.name;
+
+    const res = await fetch(object.move.url);
+    const data = await res.json();
+    const type = data.type.name;
+    const pp = data.pp;
+
+    btn.classList.add(`type-${type}`);
+    btn.dataset.type = type;
+    btn.dataset.pp = pp;
+    btn.dataset.maxPp = pp;
+
+    btn.addEventListener('mouseenter', () => {
+      selectedMove = i;
+      updateSelector(movesGrid.querySelectorAll('.move-btn'));
+    });
+
+    div.appendChild(btn);
+    movesGrid.appendChild(div);
+  });
+
+  const btns = movesGrid.querySelectorAll('.move-btn');
+  updateSelector(btns);
+}
+function updateMoveInfo(btn) {
+  movePP.textContent = `PP ${btn.dataset.pp}/${btn.dataset.maxPp}`;
+  moveType.textContent = `TIPO: ${btn.dataset.type.toUpperCase()}`;
+}
+function getHP(data) {
+  const hpStat = data.stats.find(s => s.stat.name === 'hp');
+  return hpStat.base_stat * 2;
+}
+function updateHPBar(who) {
+  const hp    = who === 'player' ? playerHP : enemyHP;
+  const maxHP = who === 'player' ? playerMaxHP : enemyMaxHP;
+  const bar   = who === 'player' ? playerHpBar : enemyHpBar;
+
+  const pct = hp / maxHP * 100;
+  bar.style.width = `${pct}%`;
+  if (pct < 30) {
+    bar.classList.add("red");
+  } else if (pct < 60) {
+    bar.classList.add("yellow");
+  } else {
+    bar.classList.remove("yellow", "red");
   }
+}
+document.addEventListener('keydown', (e) => {
+  const btns = movesGrid.querySelectorAll('.move-btn');
+  if (!btns.length) return;
+
+  if (e.key === 'ArrowRight') selectedMove = (selectedMove + 1) % btns.length;
+  if (e.key === 'ArrowLeft')  selectedMove = (selectedMove - 1 + btns.length) % btns.length;
+  if (e.key === 'ArrowDown')  selectedMove = (selectedMove + 2) % btns.length;
+  if (e.key === 'ArrowUp')    selectedMove = (selectedMove - 2 + btns.length) % btns.length;
+
+  updateSelector(btns);
+});
+function updateSelector(btns) {
+  btns.forEach((btn, i) => {
+    btn.classList.toggle('selected', i === selectedMove);
+    if (i === selectedMove) updateMoveInfo(btn);
+  });
 }

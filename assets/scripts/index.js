@@ -11,6 +11,9 @@ const selectionScreen = document.getElementById("selection-screen");
 const battleScreen = document.getElementById("battle-screen");
 /* áudio */
 const audio = document.getElementById("battle-theme");
+/* tooltip (popup de ajuda) */
+const tooltipSelec = document.querySelectorAll("#tooltip-selection");
+const tooltipSText = document.querySelectorAll("#tooltip-text");
 /* elementos especificos de cada jogador */
 const playerSearchBtn = document.getElementById('player-search-btn');
 const enemySearchBtn  = document.getElementById('enemy-search-btn');
@@ -53,8 +56,17 @@ startBtn.addEventListener("click", () => {
 searchBtn.forEach((btn, index) => {
   btn.addEventListener("click", async () => {
     const input = searchInput[index];
+    const tooltip = tooltipSelec[index];
+    const tooltipTxt = tooltipSText[index];
     if (!input.value.trim()) {
       input.value = Math.floor(Math.random() * 1025) + 1;
+      tooltipTxt.textContent = "Escolhemos um para você!";
+      tooltip.style.visibility = "visible";
+      tooltip.style.opacity = 1;
+      setTimeout(() => {
+        tooltip.style.visibility = "hidden";
+        tooltip.style.opacity = 0;
+      }, 2000);
     }
 
     if (index === 0) {

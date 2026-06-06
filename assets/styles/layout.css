@@ -99,6 +99,7 @@
   border-radius: 6px;
   padding: 8px 12px;
   min-width: 25%;
+  max-width: 50%;
   box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
   text-shadow: var(--text-shadow-ss);
 }

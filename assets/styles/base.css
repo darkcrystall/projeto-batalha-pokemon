@@ -25,12 +25,16 @@
   --border-primary: #222222;
   --border-light: rgba(255, 255, 255, 0.3);
   --border-purple: #404870;
-  --border-yellow: #cfb676;
+  --border-yellow: #c8a848;
 
   --btn-primary: #222222;
   --btn-primary-hover: #131313;
 
   --pokemon-yellow: #ffcb05;
+
+  --color-hp-green: #48c840;
+  --color-hp-yellow: #f8d030;
+  --color-hp-red: #f82020;
 
   --white: #ffffff;
   --off-white: #f8f8d8;

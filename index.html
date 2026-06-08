@@ -12,32 +12,44 @@
     />
   </head>
   <body>
-      <audio id="battle-theme" loop>
-        <source src="assets/audio/battle-theme.mpeg" type="audio/mpeg">
-      </audio>
-      <div class="start-screen" id="start">
-        <div class="start-content">
-          <img src="./assets/images/logo/pokemon-logo.gif" alt="" class="start-logo" />
-          <h1 class="start-title">Batalha de Pokémon</h1>
-          <button class="start-btn" id="startBtn">▶ Jogar</button>
-        </div>
-        <div class="scanlines"></div>
+    <audio id="battle-theme" loop>
+      <source src="assets/audio/battle-theme.mpeg" type="audio/mpeg" />
+    </audio>
+    <div class="start-screen" id="start">
+      <div class="start-content">
+        <img
+          src="./assets/images/logo/pokemon-logo.gif"
+          alt=""
+          class="start-logo"
+        />
+        <h1 class="start-title">Batalha de Pokémon</h1>
+        <button class="start-btn" id="start-btn">▶ Jogar</button>
       </div>
-      <div class="selection-screen hidden" id="selection-screen">
+      <div class="scanlines"></div>
+    </div>
+    <div class="selection-screen hidden" id="selection-screen">
       <h2 class="selection-title">Escolha seu Pokémon!</h2>
       <div class="selection-panels">
         <div class="selection-panel">
           <h3>Seu Pokémon</h3>
           <div class="search-box">
-            <input type="text" 
-            class="search-input"
-            id="player-search" placeholder="Nome ou número..." maxlength="20" />
+            <input
+              type="text"
+              class="search-input"
+              id="player-search"
+              placeholder="Nome ou número..."
+              maxlength="20"
+            />
             <div id="tooltip-selection" class="tooltip">
               <span id="tooltip-text">Nome ou número</span>
             </div>
-            <button data-tooltip="Se o campo estiver vazio, um número aleatório é escolhido." 
-            class="search-btn"
-            id="player-search-btn">Buscar</button>
+            <button
+              data-tooltip="Se o campo estiver vazio, um número aleatório é escolhido."
+              class="search-btn"
+              id="player-search-btn"
+            >
+              Buscar
+            </button>
           </div>
           <div class="pokemon-preview" id="player-preview">
             <div class="preview-placeholder">?</div>
@@ -47,22 +59,32 @@
         <div class="selection-panel">
           <h3>Oponente</h3>
           <div class="search-box">
-            <input type="text" 
-            class="search-input"
-            id="enemy-search" placeholder="Nome ou número..." maxlength="20" />
+            <input
+              type="text"
+              class="search-input"
+              id="enemy-search"
+              placeholder="Nome ou número..."
+              maxlength="20"
+            />
             <div id="tooltip-selection" class="tooltip">
               <span id="tooltip-text">Nome ou número</span>
             </div>
-            <button data-tooltip="Se o campo estiver vazio, um número aleatório é escolhido." 
-            class="search-btn"
-            id="enemy-search-btn">Buscar</button>
+            <button
+              data-tooltip="Se o campo estiver vazio, um número aleatório é escolhido."
+              class="search-btn"
+              id="enemy-search-btn"
+            >
+              Buscar
+            </button>
           </div>
           <div class="pokemon-preview" id="enemy-preview">
             <div class="preview-placeholder">?</div>
           </div>
         </div>
       </div>
-      <button class="start-btn battle-start-btn" id="battle-start-btn" disabled>▶ Iniciar batalha</button>
+      <button class="start-btn battle-start-btn" id="battle-start-btn" disabled>
+        ▶ Iniciar batalha
+      </button>
       <div class="scanlines"></div>
     </div>
     <main class="battle-screen hidden" id="battle-screen">
@@ -81,13 +103,23 @@
             <div class="hp-numbers" id="enemy-hp-numbers"></div>
           </div>
         </div>
-        
+
         <div class="enemy-sprite-wrap">
-          <img class="pokemon-sprite enemy-sprite" id="enemy-sprite" src="" alt="Inimigo" />
+          <img
+            class="pokemon-sprite enemy-sprite"
+            id="enemy-sprite"
+            src=""
+            alt="Inimigo"
+          />
         </div>
 
         <div class="player-sprite-wrap">
-          <img class="pokemon-sprite player-sprite" id="player-sprite" src="" alt="Jogador" />
+          <img
+            class="pokemon-sprite player-sprite"
+            id="player-sprite"
+            src=""
+            alt="Jogador"
+          />
         </div>
 
         <div class="pokemon-status player-status" id="player-status">
@@ -105,7 +137,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="battle-panel">
         <div class="dialog-box" id="dialog-box">
           <div class="dialog-box-inner">

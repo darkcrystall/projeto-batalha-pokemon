@@ -102,12 +102,13 @@
   max-width: 50%;
   box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
   text-shadow: var(--text-shadow-ss);
+  color: var(--text-tertiary);
 }
 .status-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6px;
+  margin: 2%;
 }
 .enemy-status {
   top: 12px;

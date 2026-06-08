@@ -30,11 +30,11 @@ const moveType = document.getElementById("move-type");
 /* jogadores status */
 const playerSprite = document.getElementById("player-sprite");
 const enemySprite = document.getElementById("enemy-sprite");
-const playerName = document.getElementById("player-name");
+const playerNameStatus = document.getElementById("player-name");
 const playerLevel = document.getElementById("player-level");
 const playerHpBar = document.getElementById("player-hp-bar");
 const playerHpNums = document.getElementById("player-hp-numbers");
-const enemyName = document.getElementById("enemy-name");
+const enemyNameStatus = document.getElementById("enemy-name");
 const enemyLevel = document.getElementById("enemy-level");
 const enemyHpBar = document.getElementById("enemy-hp-bar");
 const enemyHpNums = document.getElementById("enemy-hp-numbers");
@@ -143,8 +143,11 @@ async function startBattle() {
     : pSprites.front_default;
   enemySprite.src = eSprites.front_default;
 
-  playerName.textContent = playerData.name;
-  enemyName.textContent = enemyData.name;
+  const playerName = playerData.name;
+  const enemyName = enemyData.name;
+
+  playerNameStatus.textContent = playerName;
+  enemyNameStatus.textContent = enemyName;
 
   getLevel();
   playerLevel.textContent = pLevel;
@@ -157,7 +160,7 @@ async function startBattle() {
   updateHPBar("player");
   updateHPBar("enemy");
 
-  showDialog(`What ${playerData.name} would do?`);
+  showDialog(playerName);
 }
 function expToLevel(exp) {
   return Math.max(1, Math.min(100, Math.floor(exp / 3)));
@@ -195,7 +198,8 @@ async function getMoves() {
   const btns = movesGrid.querySelectorAll(".move-btn");
   updateSelector(btns);
 }
-async function showDialog(dialog) {
+async function showDialog(name) {
+  dialog = `What ${name} would do?`; 
   for (let i = 0; i <= dialog.length; i++) {
     dialogText.textContent = dialog.slice(0, i);
     await new Promise((r) => setTimeout(r, 30));

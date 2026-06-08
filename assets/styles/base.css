@@ -20,6 +20,7 @@
 
   --text-primary: #1a1a1a;
   --text-secondary: #ffffff4d;
+  --text-tertiary: #444444;
   --text-light: #fff;
 
   --border-primary: #222222;
@@ -43,7 +44,7 @@
   --radius-sm: 4px;
   --radius-md: 8px;
 
-  --text-shadow-ss: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  --text-shadow-ss: 1px 1px 0 rgba(0, 0, 0, 0.5);
   --text-shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.8);
   --text-shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.35);
 

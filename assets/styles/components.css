@@ -250,52 +250,6 @@
   width: clamp(90px, 18vw, 160px);
   height: clamp(90px, 18vw, 160px);
 }
-/* Animations */
-.shake-h {
-  animation: shakeH 0.4s ease !important;
-}
-.shake-v {
-  animation: shakeV 0.3s ease !important;
-}
-.attack-lunge {
-  animation: attackLunge 0.35s ease !important;
-}
-.enemy-attack-lunge {
-  animation: enemyLunge 0.35s ease !important;
-}
-.faint-anim {
-  animation: faintDrop 0.6s ease forwards !important;
-}
-
-@keyframes shakeH {
-  0%, 100% { transform: scaleX(-1) translateX(0); }
-  20% { transform: scaleX(-1) translateX(-10px); }
-  40% { transform: scaleX(-1) translateX(10px); }
-  60% { transform: scaleX(-1) translateX(-8px); }
-  80% { transform: scaleX(-1) translateX(8px); }
-}
-@keyframes shakeV {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-10px); }
-  40% { transform: translateX(10px); }
-  60% { transform: translateX(-8px); }
-  80% { transform: translateX(8px); }
-}
-@keyframes attackLunge {
-  0% { transform: scaleX(-1) translateX(0); }
-  40% { transform: scaleX(-1) translateX(40px); }
-  100% { transform: scaleX(-1) translateX(0); }
-}
-@keyframes enemyLunge {
-  0% { transform: translateX(0); }
-  40% { transform: translateX(-40px); }
-  100% { transform: translateX(0); }
-}
-@keyframes faintDrop {
-  0% { transform: scaleX(-1) translateY(0); opacity: 1; }
-  100% { transform: scaleX(-1) translateY(60px); opacity: 0; }
-}
-
 /* painel batalha */
 .battle-panel {
   height: 38%;
@@ -370,11 +324,6 @@
   line-height: 1.5;
   white-space: nowrap;
   position: relative;
-  cursor: pointer;
-}
-.move-btn:hover:not(:disabled) {
-  transform: translateY(5px);
-  z-index: 1;
 }
 .move-btn:disabled {
   opacity: 0.4;

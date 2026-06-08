@@ -38,7 +38,6 @@ const enemyName     = document.getElementById('enemy-name');
 const enemyLevel    = document.getElementById('enemy-level');
 const enemyHpBar    = document.getElementById('enemy-hp-bar');
 const enemyHpNums   = document.getElementById('enemy-hp-numbers');
-let selectedMove = 0; 
 /* estado dos jogadores */
 let playerData = null;
 let enemyData  = null;
@@ -46,6 +45,8 @@ let pLevel = null;
 let eLevel = null;
 let playerHP = 0, playerMaxHP = 0;
 let enemyHP  = 0, enemyMaxHP  = 0;
+/* seleção de movimento */
+let selectedMove = 0; 
 /* ao iniciar o jogo */
 startBtn.addEventListener("click", () => {
   startScreen.classList.add("hidden");
@@ -84,13 +85,13 @@ playerSearchBtn.addEventListener('click', () => searchPokemon('player'));
 enemySearchBtn.addEventListener('click',  () => searchPokemon('enemy'));
 playerSearchInput.addEventListener('keydown', e => { if (e.key === 'Enter') searchPokemon('player'); });
 enemySearchInput.addEventListener('keydown',  e => { if (e.key === 'Enter') searchPokemon('enemy'); });
-
+/* começo da batalha */
 battleBtn.addEventListener("click", () => {
   selectionScreen.classList.add('hidden');
   battleScreen.classList.remove('hidden');
   audio.play().catch(() => {});
   startBattle();
-})
+});
 /* busca */
 async function fetchPokemon(nameOrId) {
   const res = await fetch(`${API}/pokemon/${nameOrId}`);
@@ -127,6 +128,7 @@ async function searchPokemon(who) {
   }
 }
 async function startBattle() {
+
   const pSprites = playerData.sprites;
   const eSprites = enemyData.sprites;
 
@@ -146,6 +148,8 @@ async function startBattle() {
   enemyHP  = enemyMaxHP  = getHP(enemyData);
   updateHPBar('player');
   updateHPBar('enemy');
+
+  showDialog(`What ${playerData.name} would do?`);
 }
 function expToLevel(exp) {
   return Math.max(1, Math.min(100, Math.floor(exp / 3)));
@@ -155,7 +159,8 @@ function getLevel() {
   eLevel = expToLevel(enemyData.base_experience);
 }
 async function getMoves() {
-  const moves = playerData.moves.slice(0, 4);
+  // sorteia aleatoriamente e pega 4
+  const moves = [...playerData.moves].sort(() => Math.random() - 0.5).slice(0, 4);
 
   moves.forEach(async (object, i) => {
     const div = document.createElement("div");
@@ -173,17 +178,18 @@ async function getMoves() {
     btn.dataset.pp = pp;
     btn.dataset.maxPp = pp;
 
-    btn.addEventListener('mouseenter', () => {
-      selectedMove = i;
-      updateSelector(movesGrid.querySelectorAll('.move-btn'));
-    });
-
     div.appendChild(btn);
     movesGrid.appendChild(div);
   });
 
   const btns = movesGrid.querySelectorAll('.move-btn');
   updateSelector(btns);
+}
+async function showDialog(dialog) {
+  for (let i = 0; i <= dialog.length; i++) {
+    dialogText.textContent = dialog.slice(0, i);
+    await new Promise((r) => setTimeout(r, 30));
+  }
 }
 function updateMoveInfo(btn) {
   movePP.textContent = `PP ${btn.dataset.pp}/${btn.dataset.maxPp}`;
@@ -194,12 +200,14 @@ function getHP(data) {
   return hpStat.base_stat * 2;
 }
 function updateHPBar(who) {
-  const hp    = who === 'player' ? playerHP : enemyHP;
+  const hp = who === 'player' ? playerHP : enemyHP;
   const maxHP = who === 'player' ? playerMaxHP : enemyMaxHP;
-  const bar   = who === 'player' ? playerHpBar : enemyHpBar;
+  const bar = who === 'player' ? playerHpBar : enemyHpBar;
+  const hpNumbers = who === 'player' ? playerHpNums : enemyHpNums;
 
   const pct = hp / maxHP * 100;
   bar.style.width = `${pct}%`;
+
   if (pct < 30) {
     bar.classList.add("red");
   } else if (pct < 60) {
@@ -207,6 +215,8 @@ function updateHPBar(who) {
   } else {
     bar.classList.remove("yellow", "red");
   }
+
+  hpNumbers.textContent = `${hp} / ${maxHP}`;
 }
 document.addEventListener('keydown', (e) => {
   const btns = movesGrid.querySelectorAll('.move-btn');

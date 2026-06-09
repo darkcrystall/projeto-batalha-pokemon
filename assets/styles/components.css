@@ -287,7 +287,7 @@
 .dialog-text::after {
   content: '▼';
   display: inline-block;
-  margin-left: 4px;
+  margin-left: 8px;
   animation: blink 0.8s step-end infinite;
   font-size: 0.8em;
 }
@@ -347,7 +347,6 @@
   width: 16px;
   height: 16px;
 }
-
 .move-info {
   display: flex;
   justify-content: space-between;

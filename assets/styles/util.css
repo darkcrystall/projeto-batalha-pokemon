@@ -1,12 +1,8 @@
 /* utilitário: controla telas/elementos escondidos */
 .hidden {
-    display: none !important;
-  }
-  /* utilitário: gira a imagem caso a API não possua */
-  .rotate {
-    transform: rotate(180deg);
-  }
-  /* utilitário: transformar um texto específico em maiúscula */
-  .uppercase {
-    text-transform: uppercase;
-  }
+  display: none !important;
+}
+/* utilitário: gira a imagem caso a API não possua */
+.rotate {
+  transform: rotate(180deg);
+}

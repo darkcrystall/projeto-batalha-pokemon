@@ -23,6 +23,7 @@ const playerPreview = document.getElementById("player-preview");
 const enemyPreview = document.getElementById("enemy-preview");
 /* menu e moves */
 const dialogText = document.getElementById("dialog-text");
+const dialogName = document.getElementById("pokemon-name-dialog");
 const movesMenu = document.getElementById("moves-menu");
 const movesGrid = document.getElementById("moves-grid");
 const movePP = document.getElementById("move-pp");
@@ -95,7 +96,6 @@ enemySearchInput.addEventListener("keydown", (e) => {
 battleBtn.addEventListener("click", () => {
   selectionScreen.classList.add("hidden");
   battleScreen.classList.remove("hidden");
-  audio.play().catch(() => {});
   startBattle();
 });
 /* busca */
@@ -160,7 +160,9 @@ async function startBattle() {
   updateHPBar("player");
   updateHPBar("enemy");
 
-  showDialog(playerName);
+  let dialog = `What will ${playerName.toUpperCase()} do?`;
+
+ showDialog(dialog);
 }
 function expToLevel(exp) {
   return Math.max(1, Math.min(100, Math.floor(exp / 3)));
@@ -198,11 +200,12 @@ async function getMoves() {
   const btns = movesGrid.querySelectorAll(".move-btn");
   updateSelector(btns);
 }
-async function showDialog(name) {
-  dialog = `What ${name} would do?`; 
-  for (let i = 0; i <= dialog.length; i++) {
-    dialogText.textContent = dialog.slice(0, i);
-    await new Promise((r) => setTimeout(r, 30));
+async function showDialog(text) {
+  dialogText.textContent = '';
+
+  for (let i = 0; i <= text.length; i++) {
+    dialogText.textContent = text.slice(0, i);
+    await new Promise(r => setTimeout(r, 30));
   }
 }
 function updateMoveInfo(btn) {

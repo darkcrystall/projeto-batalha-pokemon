@@ -180,6 +180,7 @@ async function getMoves() {
   moves.forEach(async (object, i) => {
     const div = document.createElement("div");
     const btn = document.createElement("button");
+    btn.dataset.tooltip = 'Use as teclas de seta para escolher';
     btn.className = "move-btn";
     btn.textContent = object.move.name;
 

@@ -347,6 +347,25 @@
   width: 16px;
   height: 16px;
 }
+.move-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark);
+  color: var(--white);
+  font-size: 1em;
+  padding: 0.2em 0.5em;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.move-btn:hover::after {
+  opacity: 1;
+}
 .move-info {
   display: flex;
   justify-content: space-between;
